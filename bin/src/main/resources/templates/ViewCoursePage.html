@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ViewCoursePageDesign</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="color: #0066cc;line-height: 30px;">
+    <div class="container"></div>
+    <div class="container">
+        <h1 style="line-height: 30px;font-size: 19px;font-color:green;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Currently available courses</strong></h1>
+    </div>
+    <div class="container" th:if="${courseList==null}" th:text="Unfortunaltely no courses are available for now !"></div>
+    <div class="container">
+        
+        <div class="table-responsive">
+          
+            <table class="table" border="1" align="center">
+                <thead >
+                    <tr >
+                        <th align = "center">Course ID</th>
+                        <th align = "center">Course Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr align = "left" th:each="course : ${courseList}">
+                        <td th:text = "${course.getCourseID()}">Cell 1</td>
+                        <td th:text = "${course.getCourseName()}">Cell 1</td>
+                       
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+
+</html>

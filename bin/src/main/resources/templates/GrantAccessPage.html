@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Grant Access Page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="GrantAccessValidation.js" >
+  
+  </script>
+</head>
+<body>
+
+<div class="container p-3 my-3 bg-primary text-white">
+  <h3>Grant Access Page</h3>
+  <p></p>
+</div>
+<div class="container-fluid p-3 my-3 border">
+  <h6><p align="center" th:text="${feedbackMessage}"/></h6>
+  <p></p>
+</div>
+<div class="container">
+<table class="table table-hover">
+  <tr align="center">
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Email Address</th>
+    <th>Courses</th>
+    <th>Select Role</th>
+    <th>Grant Access</th>
+  </tr>
+ 
+   <tr align = "center" th:each=" guestmodel: ${userlist}">
+   <form action="/GrantRoleRequest" method="post"  >
+    <td align="center" th:value= "${guestmodel.getLastName()}" th:text= "${guestmodel.getLastName()}"></td>
+    <td align="center" th:value = "${guestmodel.getFirstName()}" th:text = "${guestmodel.getFirstName()}"></td>
+     <td align="center"  th:text = "${guestmodel.getEmail()}" ></td>
+     <input type = "hidden" th:value = "${guestmodel.getLastName()}" name="lastName">
+     <input type = "hidden" th:value = "${guestmodel.getFirstName()}" name="firstName">
+      <input type = "hidden" th:value = "${guestmodel.getEmail()}" name="email"></td>
+    <td>
+    <select name="CourseID" >
+    <option>Select courses</option>
+    <div th:each="course : ${courseList}">
+    <div><option th:text = "${course.getCourseID()}+'-'+|${course.getCourseName()}|"></option></div>
+   
+    
+    </div>
+    
+    
+    
+    </select>
+    
+    </td>
+    
+     <td>
+    
+    <select name="role" >
+    <option >Select Role</option>
+    <option th:value ="Instructor" th:text = "Instructor"/>
+    <option th:value="Guest" th:text="Guest"/>
+    </select>
+    
+    
+    </td>
+     
+    
+    <td><button  type="submit" class="btn btn-primary active">Grant</button></td>
+    </form>
+  </tr>
+  
+</table>
+</div>
+
+</body>
+</html>

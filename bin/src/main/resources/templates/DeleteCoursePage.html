@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Delete Course</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="color: #0066cc;line-height: 30px;">
+    
+    <div class="container">
+        <h1 style="line-height: 30px;font-size: 19px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Currently available courses</strong></h1>
+    </div>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped" border="1" align="center">
+                <thead>
+                    <tr align = "center">
+                        <th>Course ID</th>
+                        <th>Course Name</th>
+                        <th>Delete Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr align = "center" th:each="course : ${courseList}">
+                    <form action="/deleteCourse" method="post">
+                      <input type="hidden" th:value="${course.getCourseID()}" name="CourseID"/> 
+                       <input type="hidden" th:value="${course.getCourseName()}" name="CourseName"/>
+                      <td th:value="${course.getCourseID()}" th:text = "${course.getCourseID()}" name="CourseID"></td>
+                      <td th:value="${course.getCourseName()}"    th:text = "${course.getCourseName()}" name="CourseName"></td>
+                      <td><button class="btn btn-danger" type="submit">delete</button></td>
+                    </form>
+                        
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+   <div class="container"><span th:text="${feedBackMessage}"></div>
+</body>
+
+</html>

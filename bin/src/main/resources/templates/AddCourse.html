@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>AddCourse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="checkCourseField.js"></script>
+</head>
+
+<body>
+    <div class="container"></div>
+    <div class="container"></div>
+    
+    <div class="container">
+  <h2>Course Entry Form</h2>
+  <form action="addCourse" method="Post" onsubmit="validateFields()">
+    <div class="form-group">
+      <label for="cid">Course ID:</label>
+      <input type="text" class="form-control"  placeholder="Enter Course ID" name="CourseID" id="CourseID">
+    </div>
+    <div class="form-group">
+      <label for="CName">Course Name:</label>
+      <input type="text" class="form-control"   placeholder="Enter Course Name" name="CourseName" id="CourseName">
+    </div>
+    
+    <button type="submit" class="btn btn-default" onclick="validateFields()">Submit</button>
+  </form>
+</div>
+    
+    <div class="container">
+        <p th:each="message : ${operationFeedback}" >
+        <span th:text="${message}">
+           
+        </span></p>
+        
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

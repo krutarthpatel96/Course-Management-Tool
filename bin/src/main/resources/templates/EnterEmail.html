@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+
+<script type = "text/javascript">
+	function checkEmailEmpty()
+	{	
+		var email = document.getElementById("email");
+		var msg = document.getElementById("msg");
+		var btn = document.getElementById("resetBtn");
+		
+		//if email left blank
+		if (email.value == "")
+		{
+			msg.innerHTML = "Please enter the email";
+			btn.disabled = true;
+		}
+		else
+			btn.disabled = false;
+			
+	}
+</script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Welcome to the portal</h1>
+  <h3>Enter your email</h3>
+</div>
+
+<center>
+<form method="POST" action="/enterCode" onSubmit = "return checkEmailEmpty(this)" enctype="multipart/form-data">
+<h1 th:text="${status}"></h1>
+
+Email address:
+<input type = "text" name = "email" onkeyup="checkEmailEmpty();" id = "email"> <br><br>
+<input type = "submit" class="btn btn-primary active"  name = "resetBtn" value = "Reset Password" id = "resetBtn"  disabled><br><br>
+<span id="msg" class="email_msg">
+</form>
+</center> 
+</body>
+</html>

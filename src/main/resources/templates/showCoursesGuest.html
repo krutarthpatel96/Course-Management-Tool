@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h1>Welcome to the portal</h1>
+  <p>List of Courses</p> 
+</div>
+<center>
+	<table class="table" border="1">
+	<thead class="thead-dark">
+	<tr>
+	<th>Course Code</th>
+	<th>Course Name</th>
+	</tr>
+	<!--  
+	    <tr th:each="rows: ${courseList}">
+	        <td th:each="item: ${rows}">
+	            <span th:text="${item}"></span>
+	        </td>
+	        <td border="0">
+		        <form th:action="@{/selectCourse}" method="GET">
+		        
+	    	<input type="hidden" name="courseId" id="courseId" th:value="${rows[0]}" />
+	    	<input type="hidden" name="courseName" id="courseName" th:value="${rows[1]}" />
+		    <button type="submit">Select</button>
+	
+		        </form>
+	        </td>
+	    <tr>
+	  -->
+	   	<tr th:each="rows: ${courseInfo}">
+	        <td>
+	            <span th:text="${rows.courseId}"></span>
+	        </td>
+	        <td>
+	            <span th:text="${rows.courseName}"></span>
+	        </td>
+	    <tr>
+	    
+	</table>
+</center>
+</body>
+</html>

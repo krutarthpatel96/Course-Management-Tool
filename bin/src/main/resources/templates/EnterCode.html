@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Welcome to the portal</h1>
+  <h3>Enter the verification code</h3>
+</div>
+
+<center>
+<form method="POST" action="/checkCode" enctype="multipart/form-data">
+
+<h1 th:text="${invalidcode}"></h1>
+
+Enter Code:
+<input type = "text" name = "code_input"> <br>
+<h6>Code is sent to your inbox. Enter here to reset password...!!!</h6> <br><br>
+<input type = "submit" class="btn btn-primary active" name = "submit" value = "Submit">
+</form>
+</center>
+</body>
+</html>
